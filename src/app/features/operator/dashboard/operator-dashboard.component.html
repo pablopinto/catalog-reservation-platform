@@ -1,0 +1,38 @@
+<section class="kpis">
+  <article class="kpi" *ngFor="let k of kpis()">
+    <h4>{{ k.label }}</h4>
+    <p>{{ k.value }}</p>
+    <small [class.down]="k.var<0">{{ k.var }}%</small>
+  </article>
+</section>
+
+<section class="panel chart">
+  <div class="toolbar">
+    <select [value]="period()" (change)="period.set($any($event.target).value)">
+      <option value="DAY">{{ i18n.t('day') }}</option><option value="WEEK">{{ i18n.t('week') }}</option>
+      <option value="MONTH">{{ i18n.t('month') }}</option><option value="YEAR">{{ i18n.t('year') }}</option>
+    </select>
+    <select [value]="metric()" (change)="metric.set($any($event.target).value)">
+      <option value="SALES">{{ i18n.t('sales') }}</option><option value="RESERVATIONS">{{ i18n.t('reservations') }}</option>
+      <option value="PICKUP_TIME">{{ i18n.t('pickupTime') }}</option>
+    </select>
+  </div>
+  <div class="bars">
+    <div class="bar" *ngFor="let point of series(); let i = index" [style.height.%]="(point/max())*100" [title]="point + ''"></div>
+  </div>
+</section>
+
+<section class="panel split">
+  <div>
+    <h3>{{ i18n.t('topProducts') }}</h3>
+    <ol>
+      <li *ngFor="let p of demo.topProducts().slice(0,10)">{{ p.name }} ({{p.id}}) - {{ p.demandScore }}</li>
+    </ol>
+  </div>
+  <div>
+    <h3>{{ i18n.t('recentActivity') }}</h3>
+    <ul>
+      <li *ngFor="let e of demo.events().slice(0,10)">{{ i18n.language()==='es' ? e.messageEs : e.messageEn }}</li>
+    </ul>
+  </div>
+</section>

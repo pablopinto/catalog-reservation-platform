@@ -1,0 +1,35 @@
+<div class="shell">
+  <header class="topbar">
+    <div class="brand">🏭 {{ i18n.t('appTitle') }}</div>
+    <div class="controls">
+      <select [ngModel]="i18n.language()" (ngModelChange)="i18n.setLanguage($event)">
+        <option value="es">ES</option><option value="en">EN</option>
+      </select>
+      <select [ngModel]="demo.role()" (ngModelChange)="onRoleChange($event)">
+        <option value="operator">{{ i18n.t('operator') }}</option>
+        <option value="client">{{ i18n.t('client') }}</option>
+      </select>
+      <ng-container *ngIf="demo.role() === 'operator'">
+        <button (click)="demo.advanceHours(6)">{{ i18n.t('advance6') }}</button>
+        <button (click)="demo.advanceHours(24)">{{ i18n.t('advance24') }}</button>
+        <button (click)="demo.expireOverdue()">{{ i18n.t('expireAll') }}</button>
+        <button (click)="demo.generateActivity()">{{ i18n.t('generate') }}</button>
+        <button (click)="demo.resetDemo()">{{ i18n.t('reset') }}</button>
+        <label><input type="checkbox" [ngModel]="demo.persist()" (ngModelChange)="demo.persist.set($event)"> localStorage</label>
+      </ng-container>
+    </div>
+  </header>
+
+  <nav class="nav" *ngIf="demo.role()==='operator'">
+    <a routerLink="/operator/dashboard">{{ i18n.t('dashboard') }}</a>
+    <a routerLink="/operator/catalog">{{ i18n.t('catalog') }}</a>
+  </nav>
+  <nav class="nav" *ngIf="demo.role()==='client'">
+    <a routerLink="/client/catalog">{{ i18n.t('catalog') }}</a>
+    <a routerLink="/client/my-reservations">{{ i18n.t('myReservations') }}</a>
+  </nav>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

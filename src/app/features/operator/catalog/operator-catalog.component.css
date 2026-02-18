@@ -1,0 +1,6 @@
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}.filters input,.filters select{padding:8px;border:1px solid #9fabba;border-radius:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.card{background:#fff;border:1px solid #a6b1bf;border-radius:12px;padding:10px;box-shadow:0 4px 14px rgba(0,0,0,.06)}
+img{width:100%;height:130px;object-fit:cover;border-radius:8px}.id{font-size:1.1rem;font-weight:800;color:#1b334f}
+.badge{display:inline-block;padding:3px 8px;border-radius:999px;color:#fff;font-weight:700;font-size:.75rem}.badge.available{background:#2f8f49}.badge.reserved{background:#ab7d13}.badge.queued{background:#5d5ac9}.badge.sold{background:#61656f}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}.actions button,.actions a{font-size:.8rem;border:1px solid #95a4b6;background:#f7f9fd;padding:6px;border-radius:7px;text-decoration:none;color:inherit;text-align:center}
