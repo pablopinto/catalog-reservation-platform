@@ -1,0 +1,9 @@
+:host { display:block; font-family: Inter, Segoe UI, Arial, sans-serif; color: #1d2630; }
+.shell { min-height:100vh; background: linear-gradient(#eef1f5, #e2e6ec); }
+.topbar { display:flex; justify-content:space-between; gap:12px; padding:10px 16px; background:#c7ced8; border-bottom:1px solid #8e98a5; box-shadow: 0 2px 4px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 10; }
+.controls { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+button, select { background: #f9fbff; border: 1px solid #8894a5; padding: 6px 10px; border-radius: 8px; }
+.nav { display:flex; gap:8px; padding: 10px 16px; }
+.nav a { text-decoration:none; background:#fff; border:1px solid #aab4c2; border-radius:8px; padding:6px 10px; }
+main { padding: 14px; }
+@media (max-width: 768px) { .topbar { flex-direction: column; } }
