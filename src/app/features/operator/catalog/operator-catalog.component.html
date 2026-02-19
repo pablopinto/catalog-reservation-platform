@@ -1,0 +1,27 @@
+<section class="filters">
+  <input [ngModel]="q()" (ngModelChange)="q.set($event)" placeholder="ID / nombre">
+  <select [ngModel]="status()" (ngModelChange)="status.set($event)">
+    <option value="ALL">Todos</option><option value="AVAILABLE">DISPONIBLE</option><option value="RESERVED">RESERVADO</option><option value="QUEUED">EN COLA</option><option value="SOLD">VENDIDO</option>
+  </select>
+  <select [ngModel]="category()" (ngModelChange)="category.set($event)">
+    <option *ngFor="let c of categories()" [value]="c">{{ c }}</option>
+  </select>
+</section>
+<section class="grid">
+  <article *ngFor="let p of filtered()" class="card">
+    <img [src]="p.imageUrl" [alt]="p.name">
+    <div class="id">#{{ p.id }}</div>
+    <h4>{{ p.name }}</h4>
+    <p>€ {{ p.price }}</p>
+    <span class="badge" [class]="p.status.toLowerCase()">{{ p.status }}</span>
+    <small>{{ i18n.t('queue') }}: {{ p.queue.length }} · {{ i18n.t('expiresIn') }}: {{ expiresIn(p.id) }}</small>
+    <div class="actions">
+      <a [routerLink]="['/operator/product', p.id]">{{ i18n.t('viewDetails') }}</a>
+      <button (click)="reserveForRandomClient(p.id)">{{ i18n.t('reserveForClient') }}</button>
+      <button (click)="demo.markSold(p.id)">{{ i18n.t('markSold') }}</button>
+      <button (click)="demo.expireNow(p.id)">{{ i18n.t('expireNow') }}</button>
+      <button (click)="demo.release(p.id)">{{ i18n.t('release') }}</button>
+      <button (click)="alert('WhatsApp: Producto '+p.id)">{{ i18n.t('whatsApp') }}</button>
+    </div>
+  </article>
+</section>

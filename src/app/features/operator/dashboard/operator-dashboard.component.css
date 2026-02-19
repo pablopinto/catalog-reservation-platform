@@ -1,0 +1,7 @@
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}.kpi{background:#fff;border:1px solid #a5afbd;border-radius:12px;padding:14px;box-shadow:0 3px 10px rgba(0,0,0,.06)}
+.kpi p{font-size:1.4rem;font-weight:700}.kpi small{color:#0f8f3a}.kpi small.down{color:#b42323}
+.panel{background:#fff;border:1px solid #a5afbd;border-radius:12px;padding:14px;margin-top:12px;box-shadow:0 3px 10px rgba(0,0,0,.06)}
+.toolbar{display:flex;gap:8px;margin-bottom:12px}.bars{height:210px;display:flex;align-items:flex-end;gap:4px;background:linear-gradient(to top,#eef2f7,#f8fafc);padding:10px;border-radius:10px}
+.bar{flex:1;min-width:6px;background:#4a6da7;border-radius:5px 5px 0 0;transition:height .35s}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width: 768px){.split{grid-template-columns:1fr}}
